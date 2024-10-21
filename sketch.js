@@ -27,7 +27,7 @@ function draw() {
 background("darkolivegreen");
   textSize(40);
   text(score, 100, 200);
-  text('hit 2500 and you win!', 500, 100);
+  text('hit 2550 and you win!', 500, 100);
   
   // loop over the array and place+display each die
   for (let i = 0; i < dice.length; i++) {
@@ -46,9 +46,7 @@ function mouseClicked() {
     if (die.isTouched(mouseX,mouseY)) {
       die.toggleFreeze();
     }
-    if (score == 2500){
-      win.play();
-    }
+    
   }
 }
 
@@ -71,9 +69,11 @@ function shakeDice() {
     const die = dice[i];
     die.roll();
     list = list + die.value + " ";
-    score = score + die.sides;
+    score = score + die.roll;
 
-
+    if (score == 2550){
+      win.play();
+    }
 
   }
   console.log(list);
