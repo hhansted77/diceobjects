@@ -1,21 +1,33 @@
 let dice = [];
-let numberOfDice = 3;
+let numberOfDice = 1;
 let uno;
 let dos;
 let tres;
+let win;
+
+let score = 0;
+
+function preload() {
+  win = loadSound("libraries/crowd_small_chil_ec049202_9klCwI6.mp3");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberOfDice; i++) {
-    dice[i] = new Die(100); // argument is the size of the die
+    dice[i] = new Die(150); // argument is the size of the die
   }
   uno = new Die;
   dos = new Die;
-  tres = new Die;
+  tres = new Die;//tyring to set up different dice and connect them to background color
+  //didnt work tho, or I don't know which property function to utilize
 }
 
 function draw() {
-  background(tres.shakeDice, dos.shakeDice, uno.shakeDice);
+ // background("uno.shakeDice", "tres.shakeDice", "dos.shakeDice");
+background("darkolivegreen");
+  textSize(40);
+  text(score, 100, 200);
+  text('hit 2500 and you win!', 500, 100);
   
   // loop over the array and place+display each die
   for (let i = 0; i < dice.length; i++) {
@@ -33,6 +45,9 @@ function mouseClicked() {
     // if the cursor is over the current die, freeze/unfreeze that die
     if (die.isTouched(mouseX,mouseY)) {
       die.toggleFreeze();
+    }
+    if (score == 2500){
+      win.play();
     }
   }
 }
@@ -56,6 +71,10 @@ function shakeDice() {
     const die = dice[i];
     die.roll();
     list = list + die.value + " ";
+    score = score + die.sides;
+
+
+
   }
   console.log(list);
 }
