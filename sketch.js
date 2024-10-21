@@ -69,7 +69,7 @@ function shakeDice() {
     const die = dice[i];
     die.roll();
     list = list + die.value + " ";
-    score = score + " ";
+    score = score + die.roll;
 
     if (score == 2550){
       win.play();
