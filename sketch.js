@@ -1,10 +1,10 @@
 let dice = [];
-let numberOfDice = 5;
+let numberOfDice = 2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberOfDice; i++) {
-    dice[i] = new Die(50); // argument is the size of the die
+    dice[i] = new Die(100); // argument is the size of the die
   }
 }
 
