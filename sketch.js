@@ -71,7 +71,7 @@ function shakeDice() {
     list = list + die.value + " ";
     score = score + die.roll;
 
-    if (score == 2550){
+    if (score >= 2550){
       win.play();
     }
 
