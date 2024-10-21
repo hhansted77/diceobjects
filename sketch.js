@@ -1,15 +1,21 @@
 let dice = [];
-let numberOfDice = 2;
+let numberOfDice = 3;
+let uno;
+let dos;
+let tres;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < numberOfDice; i++) {
     dice[i] = new Die(100); // argument is the size of the die
   }
+  uno = new Die;
+  dos = new Die;
+  tres = new Die;
 }
 
 function draw() {
-  background("darkolivegreen");
+  background(tres.shakeDice, dos.shakeDice, uno.shakeDice);
   
   // loop over the array and place+display each die
   for (let i = 0; i < dice.length; i++) {
